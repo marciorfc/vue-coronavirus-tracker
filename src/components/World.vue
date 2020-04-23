@@ -52,7 +52,7 @@ export default {
     },
     methods: {
       formatar(valor) {
-        return valor ? separateByThousands(valor.toString()): '';
+        return valor ? separateByThousands(valor.toString()): 0;
       }
     }
 
