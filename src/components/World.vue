@@ -1,12 +1,17 @@
 <template>
   <div class="world" v-if="locationStats && locationStats.length > 0">
     <div class="jumbotron">
-      <h1 class="display-4">{{ totalCases }}</h1>
+        <div class="container-fluid">
+      
+      <h1 class="display-4 ">{{ totalCases }}</h1>
       <p class="lead">Total de casos reportados até hoje.</p>
+     </div>
+          
+     
     </div>
 
     
-    <table class="table">
+    <table class="table table-hover">
         <tr>
           <th>Estado/Província</th>
           <th>País</th>
