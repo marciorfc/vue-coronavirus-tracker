@@ -1,5 +1,5 @@
 <template>
-  <div class="world">
+  <div class="world" v-if="locationStats && locationStats.length > 0">
     <div class="jumbotron">
       <h1 class="display-4">{{ totalCases }}</h1>
       <p class="lead">Total de casos reportados até hoje.</p>
@@ -32,11 +32,7 @@ import { separateByThousands } from '../utils/number.js'
 export default {
     data() {
         return {
-            locationStats: [
-                {state: 'Ontario', country: 'Canada', latestTotalCases: 2367, latestTotalDeaths: 245},
-                {state: 'British Columbia', country: 'Canada', latestTotalCases: 9488, latestTotalDeaths: 1245},
-                {state: '', country: 'Brazil', latestTotalCases: 32777, latestTotalDeaths: 4061}
-            ]
+            locationStats: []
         }
     },
     mounted() {
