@@ -11,7 +11,7 @@
     </div>
 
     
-    <table class="table table-hover">
+    <table class="container-sm table table-hover">
         <tr>
           <th>Estado/Província</th>
           <th>País</th>
@@ -65,7 +65,7 @@ export default {
 </script>
 <style lang="css" scoped>
  .world {
-    padding-left: 15px;
+    
     padding-top: 10px;
  }
 </style>
