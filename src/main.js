@@ -4,7 +4,7 @@ import VueRouter from 'vue-router'
 import App from './App.vue'
 import { routes } from './routes.js'
 import axios from 'axios';
-import { NavbarPlugin } from 'bootstrap-vue'
+import { NavbarPlugin, CardPlugin } from 'bootstrap-vue'
 
 
 import './css/bootstrap.min.css'
@@ -14,6 +14,7 @@ Vue.config.productionTip = false
 
 Vue.use(VueRouter)
 Vue.use(NavbarPlugin)
+Vue.use(CardPlugin)
 
 axios.defaults.baseURL = process.env.VUE_APP_API_URL
 

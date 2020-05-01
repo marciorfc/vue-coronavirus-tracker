@@ -18,7 +18,7 @@ export default {
     appHeader: Header
   },
   created() {
-    this.$router.push('world');
+    this.$router.push('country');
   }
 }
 </script>

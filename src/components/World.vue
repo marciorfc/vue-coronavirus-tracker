@@ -1,17 +1,36 @@
 <template>
   <div class="world" v-if="locationStats && locationStats.length > 0">
-    <div class="jumbotron">
-        <div class="container-fluid">
-      
-      <h1 class="display-4 ">{{ totalCases }}</h1>
-      <p class="lead">Total de casos reportados até hoje.</p>
-     </div>
+    <div> 
+     <b-card-group deck>
+      <b-card
+        border-variant="info"
+        header="Casos"
+        header-bg-variant="info"
+        header-text-variant="white"
+        align="center"
+      >
+        <b-card-text>{{ totalCases }}</b-card-text>
+      </b-card>
+
+      <b-card
+        border-variant="danger"
+        header="Óbitos"
+        header-bg-variant="danger"
+        header-text-variant="white"
+        align="center"
+      >
+        <b-card-text>{{ totalDeaths }}</b-card-text>
+      </b-card>
+
+     
+     </b-card-group>    
+    </div> 
           
      
-    </div>
+   
 
     
-    <table class="container-sm table table-hover">
+    <table class="container-sm table table-hover" style="margin-top: 18px">
         <tr>
           <th>Estado/Província</th>
           <th>País</th>
@@ -51,6 +70,11 @@ export default {
         totalCases() {
             //const sum = 0
             return separateByThousands(this.locationStats.reduce((sum, location) => sum + location.latestTotalCases, 0).toString())
+            //return sum
+        },
+        totalDeaths() {
+            //const sum = 0
+            return separateByThousands(this.locationStats.reduce((sum, location) => sum + location.latestTotalDeaths, 0).toString())
             //return sum
         }
        
