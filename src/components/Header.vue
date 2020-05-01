@@ -1,7 +1,7 @@
 <template>
   
   <b-navbar toggleable="lg" type="dark" variant="primary" style="border-radius: 4px;">
-    <b-navbar-brand href="#"><span style="font-weight: bold;">Covid-19</span></b-navbar-brand>
+    <b-navbar-brand href="#"><span class="negrito">Covid-19</span></b-navbar-brand>
 
     <b-navbar-toggle target="nav-collapse"></b-navbar-toggle>
 

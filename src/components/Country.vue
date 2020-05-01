@@ -9,7 +9,7 @@
         header-text-variant="white"
         align="center"
       >
-        <b-card-text>{{ formatar(summaryStat.totalCases) }}</b-card-text>
+        <b-card-text><span class="negrito">{{ formatar(summaryStat.totalCases) }}</span></b-card-text>
       </b-card>
 
       <b-card
@@ -19,7 +19,7 @@
         header-text-variant="white"
         align="center"
       >
-        <b-card-text>{{ formatar(summaryStat.deaths) }}</b-card-text>
+        <b-card-text><span class="negrito">{{ formatar(summaryStat.deaths) }}</span></b-card-text>
       </b-card>
 
       <b-card
@@ -30,7 +30,7 @@
         header-text-variant="white"
         align="center"
       >
-        <b-card-text>{{ formatar(summaryStat.recovered) }}</b-card-text>
+        <b-card-text><span class="negrito">{{ formatar(summaryStat.recovered) }}</span></b-card-text>
       </b-card>
      </b-card-group>    
     </div> 
@@ -47,7 +47,7 @@
         </tr>
         <tr v-for="(estadoStat, index) in estadoStats" :key="index">
           <td>{{ estadoStat.state }}</td>
-          <td>{{ estadoStat.totalCasesPer100kInhabitants }}</td>
+          <td style="text-align: right">{{ estadoStat.totalCasesPer100kInhabitants }}</td>
           <td style="text-align: right">{{ formatar(estadoStat.totalCases) }}</td>
           <td style="text-align: right">{{ formatar(estadoStat.deaths) }}</td>
           <td style="text-align: right">{{ formatar(estadoStat.recovered) }}</td>
@@ -98,6 +98,6 @@ export default {
 <style lang="css" scoped>
  .country {
     
-    padding-top: 10px;
+    padding-top: 30px;
  }
 </style>

@@ -9,7 +9,7 @@
         header-text-variant="white"
         align="center"
       >
-        <b-card-text>{{ totalCases }}</b-card-text>
+        <b-card-text><span class="negrito">{{ totalCases }}</span></b-card-text>
       </b-card>
 
       <b-card
@@ -19,7 +19,7 @@
         header-text-variant="white"
         align="center"
       >
-        <b-card-text>{{ totalDeaths }}</b-card-text>
+        <b-card-text><span class="negrito">{{ totalDeaths }}</span></b-card-text>
       </b-card>
 
      
@@ -34,8 +34,8 @@
         <tr>
           <th>Estado/Província</th>
           <th>País</th>
-          <th>Total de casos reportado</th>
-          <th>Total de óbitos reportado</th>
+          <th>Total de casos</th>
+          <th>Total de óbitos</th>
         </tr>
         <tr v-for="(locationStat, index) in locationStats" :key="index">
           <td>{{ locationStat.state }}</td>
@@ -90,6 +90,6 @@ export default {
 <style lang="css" scoped>
  .world {
     
-    padding-top: 10px;
+    padding-top: 30px;
  }
 </style>
