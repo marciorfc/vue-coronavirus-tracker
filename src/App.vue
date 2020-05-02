@@ -37,9 +37,7 @@ export default {
   font-weight: bold
 }
 
-table {
-   table-layout: fixed;
- }
+
 
  .colnum {
    text-align: right;
