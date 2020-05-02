@@ -36,4 +36,12 @@ export default {
 .negrito {
   font-weight: bold
 }
+
+table {
+   table-layout: fixed;
+ }
+
+ .colnum {
+   text-align: right;
+ }
 </style>

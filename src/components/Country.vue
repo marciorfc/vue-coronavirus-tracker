@@ -38,24 +38,26 @@
 
     
     <table class="container-sm table table-hover" style="margin-top: 18px">
-        <tr>
-          <th>Estado</th>
-          <th>Casos por 100k hab.</th>
-          <th>Total de casos</th>
-          <th>Total de óbitos</th>
-          <th>Total de recuperados</th>
-        </tr>
+        <thead>
+          <th scope="col">Estado</th>
+          <th scope="col">Confirmados</th>
+          <th scope="col">Óbitos</th>
+          <th scope="col">Recuperados</th>
+          <th scope="col">Casos por 100k hab.</th>
+        </thead>
+        <tbody>
         <tr v-for="(estadoStat, index) in estadoStats" :key="index">
-          <td>{{ estadoStat.state }}</td>
-          <td style="text-align: right">{{ estadoStat.totalCasesPer100kInhabitants }}</td>
-          <td style="text-align: right">{{ formatar(estadoStat.totalCases) }}</td>
-          <td style="text-align: right">{{ formatar(estadoStat.deaths) }}</td>
-          <td style="text-align: right">{{ formatar(estadoStat.recovered) }}</td>
+          <th scope="row">{{ estadoStat.state }}</th>
+          <td class="colnum">{{ formatar(estadoStat.totalCases) }}</td>
+          <td class="colnum">{{ formatar(estadoStat.deaths) }}</td>
+          <td class="colnum">{{ formatar(estadoStat.recovered) }}</td>
+          <td class="colnum">{{ estadoStat.totalCasesPer100kInhabitants }}</td>
         </tr>
         <tr></tr>
         <tr>
           <td colspan="3" style="font-size: 11">Fonte: Ministério da Saúde.</td>
         </tr>
+        </tbody>
       </table>
   </div>
     
@@ -100,4 +102,6 @@ export default {
     
     padding-top: 30px;
  }
+
+ 
 </style>

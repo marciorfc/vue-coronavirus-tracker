@@ -31,22 +31,24 @@
 
     
     <table class="container-sm table table-hover" style="margin-top: 18px">
-        <tr>
-          <th>Estado/Província</th>
-          <th>País</th>
-          <th>Total de casos</th>
-          <th>Total de óbitos</th>
-        </tr>
+        <thead>
+          <th scope="col">Estado/Província</th>
+          <th scope="col">País</th>
+          <th scope="col">Confirmados</th>
+          <th scope="col">Óbitos</th>
+        </thead>
+        <tbody>
         <tr v-for="(locationStat, index) in locationStats" :key="index">
           <td>{{ locationStat.state }}</td>
           <td>{{ locationStat.country }}</td>
-          <td style="text-align: right">{{ formatar(locationStat.latestTotalCases) }}</td>
-          <td style="text-align: right">{{ formatar(locationStat.latestTotalDeaths) }}</td>
+          <td class="colnum">{{ formatar(locationStat.latestTotalCases) }}</td>
+          <td class="colnum">{{ formatar(locationStat.latestTotalDeaths) }}</td>
         </tr>
         <tr></tr>
         <tr>
           <td colspan="3" style="font-size: 11">Fonte: Centro de Ciência e Engenharia de Sistemas da Universidade Johns Hopkins, Maryland, Estados Unidos.</td>
         </tr>
+        </tbody>
       </table>
   </div>
 </template>
