@@ -32,12 +32,26 @@
       >
         <b-card-text><span class="negrito">{{ formatar(summaryStat.recovered) }}</span></b-card-text>
       </b-card>
+     </b-card-group>
+     <b-card-group class="country">
+      <b-card
+        border-variant="black"
+        header="Evolução da doença no País"
+        header-class="negrito"
+        header-bg-variant="transparent"
+        header-border-variant="black"
+        header-text-variant="black"
+        align="center">
+        <ProgressLineChart :chart-data="datacollection" :options="options"/>
+      </b-card>
      </b-card-group>    
     </div> 
     
-
+    <div class="country">
     
-    <table class="container-sm table table-hover" style="margin-top: 18px">
+        
+    <div class="container">
+    <table class="table table-hover" >
         <thead>
           <th scope="col">Estado</th>
           <th scope="col">Confirmados</th>
@@ -53,12 +67,15 @@
           <td class="colnum">{{ formatar(estadoStat.recovered) }}</td>
           <td class="colnum">{{ estadoStat.totalCasesPer100kInhabitants }}</td>
         </tr>
-        <tr></tr>
+        
         <tr>
-          <td colspan="3" style="font-size: 11">Fonte: Ministério da Saúde.</td>
+          <td colspan="5" style="text-align: left; font-size: 11">Fonte: Secretarias Estaduais de Saúde. Brasil, 2020</td>
         </tr>
         </tbody>
       </table>
+    </div>
+    
+    </div>
   </div>
     
 
@@ -66,20 +83,34 @@
 <script>
 import axios from 'axios'
 import { separateByThousands } from '../utils/number.js'
+import { chartCountryData, options } from '@/data/chartCountryData';
+import ProgressLineChart from '@/components/ProgressLineChart.vue';
 
 export default {
+    components: {
+      ProgressLineChart
+    },
     data() {
         return {
             estadoStats: [],
-            summaryStat: {}
+            summaryStat: {},
+            chartCountry: [],
+            datacollection: null,
+            options: options
         }
     },
     mounted() {
+        this.chartCountry = chartCountryData;
+        console.log(chartCountryData);
+        console.log(this.chartCountry.map(stats => stats.death));
+        this.fillData();
+
         axios.get('/cases/country/local/states')
          .then(response => this.estadoStats = response.data);
         axios.get('/cases/country/local/summary')
          .then(response => this.summaryStat = response.data); 
 
+         
     },
     computed: {
         totalCases() {
@@ -92,7 +123,33 @@ export default {
     methods: {
       formatar(valor) {
         return valor ? separateByThousands(valor.toString()): 0;
-      }
+      },
+      fillData () {
+        this.datacollection = {
+          labels: this.chartCountry.map(stats => stats.time),
+          datasets: [
+            {
+              label: 'Confirmados',
+              //backgroundColor: '#f87979',
+              borderColor: '#033C73',
+              pointBackgroundColor: 'white',
+              borderWidth: 1,
+              pointBorderColor: '#033C73',
+              backgroundColor: 'transparent',
+              data: this.chartCountry.map(stats => stats.infected)
+            }, {
+              label: 'Óbitos',
+              //backgroundColor: '#f87979',
+              borderColor: '#C71C22',
+              pointBackgroundColor: 'white',
+              borderWidth: 1,
+              pointBorderColor: '#C71C22',
+              backgroundColor: 'transparent',
+              data: this.chartCountry.map(stats => stats.death)
+            }
+          ]
+        }
+      },
     }
 
 }

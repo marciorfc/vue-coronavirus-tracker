@@ -38,8 +38,21 @@ export default {
 }
 
 
-
  .colnum {
    text-align: right;
  }
+ 
+ .footer {
+   text-align: left;
+ }
+
+  
+tr:nth-child(odd) {
+  
+  background-color: rgba(0,0,0,0.075);
+ }
+
+ 
+
+
 </style>
