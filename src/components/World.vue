@@ -29,7 +29,7 @@
      
    
 
-    
+   <div class="content-table">     
     <table class="container-sm table table-hover" style="margin-top: 18px">
         <thead>
           <th scope="col">Estado/Província</th>
@@ -46,10 +46,11 @@
         </tr>
         <tr></tr>
         <tr>
-          <td colspan="3" style="font-size: 11">Fonte: Centro de Ciência e Engenharia de Sistemas da Universidade Johns Hopkins, Maryland, Estados Unidos.</td>
+          <td colspan="4" class="content-table-footer">Fonte: Centro de Ciência e Engenharia de Sistemas da Universidade Johns Hopkins, Maryland, Estados Unidos.</td>
         </tr>
         </tbody>
       </table>
+   </div>  
   </div>
 </template>
 <script>

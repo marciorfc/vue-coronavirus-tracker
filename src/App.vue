@@ -37,7 +37,16 @@ export default {
   font-weight: bold
 }
 
+.content-table {
+   padding-top: 30px;
+   overflow-x: auto;
+   font-size: 13px;
+ }
 
+ .content-table-footer {
+    font-size: 11px;
+    text-align: left;
+ }
  .colnum {
    text-align: right;
  }
