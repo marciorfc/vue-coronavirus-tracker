@@ -40,7 +40,7 @@ export default {
 .content-table {
    padding-top: 30px;
    overflow-x: auto;
-   font-size: 13px;
+   font-size: 14px;
  }
 
  .content-table-footer {
