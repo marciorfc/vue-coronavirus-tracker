@@ -19,7 +19,7 @@
         header-text-variant="white"
         align="center"
       >
-        <b-card-text><span class="negrito">{{ formatar(summaryStat.deathsMS) }}</span></b-card-text>
+        <b-card-text><span class="negrito">{{ formatar(summaryStat.deaths) }}</span></b-card-text>
       </b-card>
 
       <b-card
@@ -79,7 +79,7 @@
             v-for="(estadoStat, index) in estadoStats" :key="index">
           <th scope="row">{{ estadoStat.state }}</th>
           <td class="colnum">{{ formatar(estadoStat.totalCasesMS) }}</td>
-          <td class="colnum">{{ formatar(estadoStat.deathsMS) }}</td>
+          <td class="colnum">{{ formatar(estadoStat.deaths) }}</td>
           <td class="colnum">{{ formatar(estadoStat.recovered) }}</td>
           <td class="colnum">{{ estadoStat.totalCasesPer100kInhabitants }}</td>
         </tr>
