@@ -99,6 +99,7 @@
 <script>
 import axios from 'axios'
 import { separateByThousands } from '../utils/number.js'
+import { formatDate } from '../utils/dateutil.js'
 import { chartCountryData, options } from '@/data/chartCountryData';
 import ProgressLineChart from '@/components/ProgressLineChart.vue';
 
@@ -119,9 +120,7 @@ export default {
     },
     mounted() {
         this.chartCountry = chartCountryData;
-        //console.log(chartCountryData);
-        //console.log(this.chartCountry.map(stats => stats.death));
-        
+          
 
         axios.get('/cases/country/local/states')
          .then(response => this.estadoStats = response.data);
@@ -132,7 +131,7 @@ export default {
             this.chartCountry = response.data;
             this.fillData();
             this.fillDataNovoCaso();
-            console.log(this.chartCountry);
+            
             this.loaded = true;    
           })
          
@@ -151,7 +150,7 @@ export default {
       },
       fillData () {
         this.datacollection = {
-          labels: this.chartCountry.map(stats => stats.date),
+          labels: this.chartCountry.map(stats => formatDate(stats.date)),
           datasets: [
             {
               label: 'Confirmados',
@@ -178,7 +177,7 @@ export default {
 
       fillDataNovoCaso () {
         this.datacollectionnovocaso = {
-          labels: this.chartCountry.map(stats => stats.date),
+          labels: this.chartCountry.map(stats => formatDate(stats.date)),
           datasets: [
             {
               label: 'Confirmados por dia',
