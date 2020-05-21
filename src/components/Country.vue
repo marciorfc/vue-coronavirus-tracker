@@ -77,7 +77,9 @@
         <tbody>
         <tr 
             v-for="(estadoStat, index) in estadoStats" :key="index">
-          <th scope="row">{{ estadoStat.state }}</th>
+          <th scope="row"><router-link :to="{ name: 'state', params: { id: estadoStat.sigla }}">
+            {{ estadoStat.state }}
+            </router-link></th>
           <td class="colnum">{{ formatar(estadoStat.totalCasesMS) }}</td>
           <td class="colnum">{{ formatar(estadoStat.deaths) }}</td>
           <td class="colnum">{{ formatar(estadoStat.recovered) }}</td>
