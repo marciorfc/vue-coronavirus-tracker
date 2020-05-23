@@ -7,5 +7,5 @@ export const routes = [
     {path: '/', component: Home },
     {path: '/world', component: World },
     {path: '/country', component: Country },
-    {path: '/state/:id', name: 'state', component: State, props: true}
+    {path: '/state/:state', name: 'state', component: State, props: true}
 ]

@@ -55,8 +55,12 @@ export default {
    text-align: left;
  }
 
+ .country {
+    padding-top: 30px;
+ }
+
   
-tr:nth-child(odd) {
+  tr:nth-child(odd) {
   
   background-color: rgba(0,0,0,0.075);
  }

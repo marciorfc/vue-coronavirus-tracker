@@ -77,7 +77,7 @@
         <tbody>
         <tr 
             v-for="(estadoStat, index) in estadoStats" :key="index">
-          <th scope="row"><router-link :to="{ name: 'state', params: { id: estadoStat.sigla }}">
+          <th scope="row"><router-link :to="{ name: 'state', params: { state : { id: estadoStat.sigla, nome: estadoStat.state }}}">
             {{ estadoStat.state }}
             </router-link></th>
           <td class="colnum">{{ formatar(estadoStat.totalCasesMS) }}</td>
@@ -208,9 +208,6 @@ export default {
 }
 </script>
 <style lang="css" scoped>
- .country {
-    padding-top: 30px;
- }
 
  
 
