@@ -80,10 +80,26 @@
           <th scope="row"><router-link :to="{ name: 'state', params: { state : { id: estadoStat.sigla, nome: estadoStat.state }}}">
             {{ estadoStat.state }}
             </router-link></th>
-          <td class="colnum">{{ formatar(estadoStat.totalCasesMS) }}</td>
-          <td class="colnum">{{ formatar(estadoStat.deaths) }}</td>
-          <td class="colnum">{{ formatar(estadoStat.recovered) }}</td>
-          <td class="colnum">{{ estadoStat.totalCasesPer100kInhabitants }}</td>
+          <td class="colnum">
+              <router-link :to="{ name: 'state', params: { state : { id: estadoStat.sigla, nome: estadoStat.state }}}">
+                {{ formatar(estadoStat.totalCasesMS) }}
+              </router-link>
+          </td>
+          <td class="colnum">
+            <router-link :to="{ name: 'state', params: { state : { id: estadoStat.sigla, nome: estadoStat.state }}}">
+              {{ formatar(estadoStat.deaths) }}
+            </router-link>  
+          </td>
+          <td class="colnum">
+            <router-link :to="{ name: 'state', params: { state : { id: estadoStat.sigla, nome: estadoStat.state }}}">
+              {{ formatar(estadoStat.recovered) }}
+            </router-link>
+          </td>
+          <td class="colnum">
+            <router-link :to="{ name: 'state', params: { state : { id: estadoStat.sigla, nome: estadoStat.state }}}">
+              {{ estadoStat.totalCasesPer100kInhabitants }}
+            </router-link>    
+          </td>
         </tr>
         
         <tr>

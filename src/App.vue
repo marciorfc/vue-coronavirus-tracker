@@ -65,7 +65,9 @@ export default {
   background-color: rgba(0,0,0,0.075);
  }
 
- 
+  a {
+    color: black;
+  }
 
 
 </style>
