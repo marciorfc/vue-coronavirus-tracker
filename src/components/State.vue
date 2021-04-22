@@ -108,15 +108,6 @@
                     pointBorderColor: '#033C73',
                     backgroundColor: 'transparent',
                     data: this.chartStateData.map(stats => stats.newCases)
-                    }, {
-                    label: 'Óbitos por dia',
-                    //backgroundColor: '#f87979',
-                    borderColor: '#C71C22',
-                    pointBackgroundColor: '#C71C22',
-                    borderWidth: 1,
-                    pointBorderColor: '#C71C22',
-                    backgroundColor: 'transparent',
-                    data: this.chartStateData.map(stats => stats.newDeaths)
                     }
                 ]
                 };
