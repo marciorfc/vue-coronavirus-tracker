@@ -6,23 +6,23 @@
        
       <b-card
         border-variant="black"
-        header="Acumulado de casos e óbitos"
-        header-class="negrito"
-        header-bg-variant="transparent"
-        header-border-variant="black"
-        header-text-variant="black"
-        align="center">
-        <ProgressLineChart :chart-data="datacollection" :options="options"/>
-      </b-card>
-      <b-card
-        border-variant="black"
-        header="Notificação de novos casos e óbitos a cada dia"
+        header="Notificação de novos casos a cada dia"
         header-class="negrito"
         header-bg-variant="transparent"
         header-border-variant="black"
         header-text-variant="black"
         align="center">
         <ProgressLineChart :chart-data="datacollectionnovocaso" :options="options"/>
+      </b-card>
+      <b-card
+        border-variant="black"
+        header="Notificação de novos óbitos a cada dia"
+        header-class="negrito"
+        header-bg-variant="transparent"
+        header-border-variant="black"
+        header-text-variant="black"
+        align="center">
+        <ProgressLineChart :chart-data="dataCollectionNovoObito" :options="options"/>
       </b-card>
      </b-card-group>
     </div>
@@ -50,6 +50,7 @@
                 chartStateData: [],
                 datacollection: null,
                 datacollectionnovocaso: null,
+                dataCollectionNovoObito: null,
                 options,
                 loaded: false
             }
@@ -118,8 +119,24 @@
                     data: this.chartStateData.map(stats => stats.newDeaths)
                     }
                 ]
+                };
+                
+                this.dataCollectionNovoObito = {
+                      labels: this.chartStateData.map(stats => formatDate(stats.date)),
+                    datasets: [
+                        {
+                        label: 'Óbitos por dia',
+                        borderColor: '#C71C22',
+                        pointBackgroundColor: '#C71C22',
+                        borderWidth: 1,
+                        pointBorderColor: '#C71C22',
+                        backgroundColor: 'transparent',
+                        data: this.chartStateData.map(stats => stats.newDeaths)
+                        }
+                    ]
                 }
-            }
+         },
+
         }
     }
 </script>
